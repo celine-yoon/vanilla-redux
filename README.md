@@ -10,6 +10,4 @@ Learning Redux using Vanilla JS
 
 ### Features
 
--
-
-## Try it out
+- A ToDo List using redux
