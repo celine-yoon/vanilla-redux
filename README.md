@@ -10,4 +10,7 @@ Learning Redux using Vanilla JS
 
 ### Features
 
-- A ToDo List using redux
+- Store
+- Dispatch
+- Subscribe
+- Reducer
