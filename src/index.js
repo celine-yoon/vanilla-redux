@@ -8,7 +8,7 @@ const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
 const addToDo = (text) => {
-  return { type: DELETE_TODO, text };
+  return { type: ADD_TODO, text };
 };
 
 const deleteToDo = (id) => {
@@ -18,9 +18,10 @@ const deleteToDo = (id) => {
 const reducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [{ text: action.text, id: Date.now() }, ...state];
+      const newToDo = { text: action.text, id: Date.now() };
+      return [newToDo, ...state];
     case DELETE_TODO:
-      return [];
+      return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
   }
@@ -35,7 +36,7 @@ const dispatchAddToDo = (text) => {
 };
 
 const dispatchDeleteToDo = (event) => {
-  const id = event.target.parentNode.id;
+  const id = parseInt(event.target.parentNode.id);
   store.dispatch(deleteToDo(id));
 };
 
